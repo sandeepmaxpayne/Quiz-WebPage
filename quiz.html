@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" type="text/css" href="quiz_style.css">
+
+</head>
+<body>
+<div id="left" >
+    <h4>1. What is HTML?</h4>
+    <input type="radio" name="q1" id="op1"/> Hypertext Markup Language <br>
+    <input type="radio" name="q1" id="op2"/> Hyper Markup Language <br>
+    <input type="radio" name="q1" id="op3"/> Highlevel Markup Language <br>
+    <input type="radio" name="q1" id="op4"/> Horrid Markup Language <br>
+
+    <h4>2. What is CSS?</h4>
+    <input type="radio" name="q2" id="op21"/> Cascading Style Sheet <br>
+    <input type="radio" name="q2" id="op22"/> Code Style Sheet <br>
+    <input type="radio" name="q2" id="op23"/> Copycat Style Sheet <br>
+    <input type="radio" name="q2" id="op24"/> Canonical Style Sheet <br>
+
+    <h4>3. What is ATM?</h4>
+    <input type="radio" name="q3" id="op31"/> Autonomous Tall Machine <br>
+    <input type="radio" name="q3" id="op32"/> Aysnchronous Teller MAchine <br>
+    <input type="radio" name="q3" id="op33"/> Automatic Teller Machine <br>
+    <input type="radio" name="q3" id="op34"/> Amazing Tall Man <br>
+
+    <h4>4. What is .js?</h4>
+    <input type="radio" name="q4" id="op41"/> John Shelly <br>
+    <input type="radio" name="q4" id="op42"/> dot js <br>
+    <input type="radio" name="q4" id="op43"/> An extension of javascript <br>
+    <input type="radio" name="q4" id="op44"/> None of these <br>
+
+    <div class="check">
+        <div id="chk1" style="margin-top: 75px" ></div>
+        <div id="chk2" style="margin-top: 100px"></div>
+        <div id="chk3" style="margin-top: 75px"></div>
+        <div id="chk4" style="margin-top: 75px"></div>
+    </div>
+
+</div>
+<div id="right">
+    <h4>5. What is http?</h4>
+    <input type="radio" name="q5" id="op51"/> Hungry Turtle Top Paradise <br>
+    <input type="radio" name="q5" id="op52"/> Hypertext Transfer Protocol <br>
+    <input type="radio" name="q5" id="op53"/> Harry Tom Tom Protocol <br>
+    <input type="radio" name="q5" id="op54"/> None of these <br>
+
+    <br>
+    <button id="submit" onclick="onSubmit()">SUBMIT</button>
+    <p id="score"></p>
+    <b><p id="disp_percentage"></p></b>
+    <p id="percentage"></p>
+
+
+    <div class="check">
+        <div id="chk5" style="margin-top: 65px"></div>
+    </div>
+</div>
+<script>
+    popup();
+    function checkRes() {
+        var sum = 0;
+        a1 = document.getElementById("op1");
+        a2 = document.getElementById("op21");
+        a3 = document.getElementById("op32");
+        a4 = document.getElementById("op43");
+        a5 = document.getElementById("op52");
+
+        if (a1.checked === true){
+            sum++;
+            document.getElementById("chk1").innerHTML = '&#10004';
+            document.getElementById("chk1").style.color = "green";
+        }else {
+            document.getElementById("chk1").innerHTML = '&#10006';
+            document.getElementById("chk1").style.color = "red";
+        }
+        if (a2.checked === true){
+            sum ++;
+            document.getElementById("chk2").innerHTML = '&#10004';
+            document.getElementById("chk2").style.color = "green";
+        }else {
+            document.getElementById("chk2").innerHTML = '&#10006';
+            document.getElementById("chk2").style.color = "red";
+        }
+        if (a3.checked === true){
+            sum ++;
+            document.getElementById("chk3").innerHTML = '&#10004';
+            document.getElementById("chk3").style.color = "green";
+        }else {
+            document.getElementById("chk3").innerHTML = '&#10006';
+            document.getElementById("chk3").style.color = "red";
+        }
+        if (a4.checked === true){
+            sum ++;
+            document.getElementById("chk4").innerHTML = '&#10004';
+            document.getElementById("chk4").style.color = "green";
+        }else {
+            document.getElementById("chk4").innerHTML = '&#10006';
+            document.getElementById("chk4").style.color = "red";
+        }
+        if (a5.checked === true){
+            sum ++;
+            document.getElementById("chk5").innerHTML = '&#10004';
+            document.getElementById("chk5").style.color = "green";
+        }else {
+            document.getElementById("chk5").innerHTML = '&#10006';
+            document.getElementById("chk5").style.color = "red";
+        }
+        document.getElementById("score").innerHTML = "<b>Total Correct: "+ sum  ;
+
+        var per = 0.0;
+        per = (sum / 5) * 100;
+
+        if (per < 50){
+            document.getElementById("disp_percentage").innerHTML = per + "%" ;
+            document.getElementById("disp_percentage").style.color = "red";
+        }else {
+            document.getElementById("disp_percentage").innerHTML = per+"%";
+            document.getElementById("disp_percentage").style.color = "green";
+        }
+
+
+        if (per < 50){
+            document.getElementById("percentage").innerHTML = "Try Again !";
+            document.getElementById("percentage").style.color = "red";
+        }else if (per >=50 && per < 90){
+            document.getElementById("percentage").innerHTML = "<b>Well Done 👍</b>";
+            document.getElementById("percentage").style.color = "green";
+        }else {
+            document.getElementById("percentage").innerHTML = "<b>🏆🏆 Excellent! Scored " + per + "% 🏆🏆</b>";
+        }
+
+
+    }
+
+
+    function onSubmit() {
+        checkRes()
+
+    }
+    function popup() {
+        alert("WELCOME TO THE QUIZ");
+    }
+</script>
+
+
+</body>
+</html>
